@@ -36,7 +36,7 @@ jobs:
           mkdir -p smoke
           # Ubuntu runners block Chromium's user-namespace sandbox.
           VIGIA_SMOKE=1 VIGIA_SMOKE_OUT=smoke xvfb-run -a pnpm exec electron --no-sandbox .
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: desktop-smoke
@@ -57,7 +57,7 @@ jobs:
       - run: pnpm --filter @vigia/ui build
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm e2e
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: playwright-report
