@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "@vigia/core": "workspace:*",
-    "astro": "7.3.3"
+    "astro": "7.3.5"
   }
 }
