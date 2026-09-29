@@ -1,13 +1,20 @@
+# Weekly dependency updates, against main (where the work happens), grouped so each week
+# brings at most one PR for npm and one for GitHub Actions. Major npm versions stay separate
+# because they may need code changes.
 version: 2
 updates:
   - package-ecosystem: npm
     directory: /
-    target-branch: dev
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    groups:
+      npm-minor-and-patch:
+        update-types: [minor, patch]
   - package-ecosystem: github-actions
     directory: /
-    target-branch: dev
     schedule:
       interval: weekly
+    groups:
+      github-actions:
+        patterns: ["*"]
